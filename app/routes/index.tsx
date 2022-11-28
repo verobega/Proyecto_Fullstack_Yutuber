@@ -1,21 +1,21 @@
 import { type ActionFunction } from '@remix-run/node';
-import { useFetcher } from '@remix-run/react';
 import ytdl from 'ytdl-core';
-import React, { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
 import MiniTable, { type Format } from './MiniTable';
 import Header from '~/components/Header';
+import Spinner from '../components/Spinner';
 
-interface FetcherData {
+interface ActionData {
   title: string;
   thumbnail: string;
-  duration: number;
+  duration: number | string;
   formats: Format[];
 }
-export const action: ActionFunction = async ({ request }) => {
-  const formData = await request.formData();
-  const url = formData.get('url') as string;
+export const action: ActionFunction = async (): Promise<ActionData | null> => {
+  // 1.- necesitamos obtener la url del video de youtube
+  let url;
   if (!url) return null;
 
   const info = await ytdl.getInfo(url);
@@ -31,20 +31,18 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function Thumb() {
-  const fetcher = useFetcher<FetcherData | null>();
+  // 2.- Necesitamos una manera de recibir la respuesta del action y/o las transiciones (loading, idle etc.)
   const [url, setURL] = useState('https://youtu.be/lV61TDHiALo');
 
   const handleDownload = (format: Format) => {
-    window.open(
-      '/download?url=' + url + '&itag=' + format.itag,
-      'targetWindow'
-    );
+    //5.- una vez que mostramos los resultados necesitamos abrir una nueva pestaña para descargar el video
   };
 
   return (
     <section className='bg-violet-200 text-violet-800 h-screen flex flex-col gap-8 items-center py-20'>
       <Header />
-      <fetcher.Form method='post' className='rounded-xl shadow-xl flex'>
+      {/* 3.-  Necesitamos un form para enviar la petición post */}
+      <div className='rounded-xl shadow-xl flex'>
         <Input
           placeholder='Escribe tu link'
           value={url}
@@ -54,16 +52,12 @@ export default function Thumb() {
           }
         />
         <Button type='submit'>
-          {fetcher.state === 'idle' ? (
-            'Analizar'
-          ) : (
-            <div className='w-8 h-8 border-4 border-violet-900 border-t-violet-200 animate-spin rounded-full' />
-          )}
+          {/* 4.- Aquí necesitamos una manera de mostrar un loading */}
+          {true ? 'Analizar' : <Spinner />}
         </Button>
-      </fetcher.Form>
-      {fetcher.data && (
-        <MiniTable data={fetcher.data} onClick={handleDownload} />
-      )}
+      </div>
+      {/* 6.- La data que nos devuelve el action tiene que usarse para mostrar la mini tabla, así como entregarsele */}
+      {false && <MiniTable data={'data'} onClick={handleDownload} />}
     </section>
   );
 }

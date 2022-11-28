@@ -571,16 +571,16 @@ video {
   width: 24rem;
 }
 
-.w-8 {
-  width: 2rem;
-}
-
 .w-\[50\%\] {
   width: 50%;
 }
 
 .w-80 {
   width: 20rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 @keyframes spin {
@@ -664,14 +664,14 @@ video {
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
 }
 
-.bg-violet-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(221 214 254 / var(--tw-bg-opacity));
-}
-
 .bg-violet-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
+}
+
+.bg-violet-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 214 254 / var(--tw-bg-opacity));
 }
 
 .p-4 {
