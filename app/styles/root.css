@@ -547,16 +547,24 @@ video {
   }
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .h-screen {
   height: 100vh;
 }
 
-.h-8 {
-  height: 2rem;
+.h-4 {
+  height: 1rem;
 }
 
 .w-32 {
@@ -571,6 +579,10 @@ video {
   width: 24rem;
 }
 
+.w-8 {
+  width: 2rem;
+}
+
 .w-\[50\%\] {
   width: 50%;
 }
@@ -579,8 +591,12 @@ video {
   width: 20rem;
 }
 
-.w-8 {
-  width: 2rem;
+.w-\[380px\] {
+  width: 380px;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 @keyframes spin {
@@ -605,20 +621,28 @@ video {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .rounded {
   border-radius: 0.25rem;
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .rounded-r-xl {
@@ -639,6 +663,10 @@ video {
   border-width: 4px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-violet-500 {
   --tw-border-opacity: 1;
   border-color: rgb(139 92 246 / var(--tw-border-opacity));
@@ -652,6 +680,11 @@ video {
 .border-t-violet-200 {
   --tw-border-opacity: 1;
   border-top-color: rgb(221 214 254 / var(--tw-border-opacity));
+}
+
+.border-t-violet-100 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(237 233 254 / var(--tw-border-opacity));
 }
 
 .bg-violet-500 {
@@ -681,6 +714,10 @@ video {
 .py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-xl {
@@ -724,6 +761,11 @@ video {
   color: rgb(91 33 182 / var(--tw-text-opacity));
 }
 
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -751,4 +793,8 @@ video {
 .hover\:bg-violet-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(109 40 217 / var(--tw-bg-opacity));
+}
+
+.active\:opacity-70:active {
+  opacity: 0.7;
 }
