@@ -1,4 +1,4 @@
-import { type ActionFunction } from '@remix-run/node';
+import { LoaderFunction, type ActionFunction, redirect } from '@remix-run/node';
 import ytdl from 'ytdl-core';
 import { type ChangeEvent, useState } from 'react';
 import Button from '~/components/Button';
@@ -6,6 +6,7 @@ import Input from '~/components/Input';
 import MiniTable, { type Format } from './MiniTable';
 import Header from '~/components/Header';
 import Spinner from '../components/Spinner';
+import { getSession } from '~/sessions';
 
 interface ActionData {
   title: string;
@@ -29,6 +30,14 @@ export const action: ActionFunction = async (): Promise<ActionData | null> => {
   };
   return result;
 };
+
+// export const loader: LoaderFunction = async ({ request }) => {
+//   const session = await getSession(request.headers.get('Cookie'));
+//   if (!session.has('userId')) {
+//     return redirect('/login');
+//   }
+//   return null;
+// };
 
 export default function Thumb() {
   // 2.- Necesitamos una manera de recibir la respuesta del action y/o las transiciones (loading, idle etc.)
