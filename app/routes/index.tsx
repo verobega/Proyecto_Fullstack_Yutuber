@@ -58,7 +58,7 @@ export default function Thumb() {
 
     //fetcher.load(`/download?url=${url}&itag=${itag}`); // esta no gracias, orita no joven
 
-    //window.location.href = `/download?url=${url}&itag=${itag}`
+    window.location.href = `/download?url=${url}&itag=${itag}`
 
     //const a = document.createElement('a');
     //a.href = `/download?url=${url}&itag=${itag}`
