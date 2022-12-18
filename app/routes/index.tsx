@@ -88,7 +88,6 @@ export default function Thumb() {
           </Button>
         </div>
       </Form>
-
       {/* 6.- La data que nos devuelve el action tiene que usarse para mostrar la mini tabla, así como entregarsele */}
       {!data?.thumbnail ? null : <MiniTable data={data} onClick={handleDownload} />}
     </section>
